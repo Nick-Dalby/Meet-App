@@ -9,7 +9,16 @@ import NumberOfEvents from './NumberOfEvents'
 import { extractLocations, getEvents } from './api'
 
 export class App extends Component {
-  state = { events: [], locations: [] }
+  state = { 
+    events: [],
+    locations: [],
+    numberOfEvents: 32
+  }
+
+  handleEventNumberChange = (value) => {
+    this.setState({ numberOfEvents: value })
+  }
+
 
   updateEvents = (location) => {
     getEvents().then((events) => {
@@ -17,7 +26,7 @@ export class App extends Component {
         location === 'all'
           ? events
           : events.filter((event) => event.location === location)
-      this.setState({ events: locationEvents })
+      this.setState({ events: locationEvents.slice(0, this.state.numberOfEvents) })
     })
   }
 
@@ -41,8 +50,8 @@ export class App extends Component {
           locations={this.state.locations}
           updateEvents={this.updateEvents}
         />
-        <NumberOfEvents />
-        <EventList events={this.state.events} />
+        <NumberOfEvents numberOfEvents={this.state.numberOfEvents} handleEventNumberChange={this.handleEventNumberChange}/>
+        <EventList events={this.state.events} numberOfEvents={this.state.numberOfEvents}/>
       </div>
     )
   }
