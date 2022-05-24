@@ -51,7 +51,7 @@ export class App extends Component {
           updateEvents={this.updateEvents}
         />
         <NumberOfEvents numberOfEvents={this.state.numberOfEvents} handleEventNumberChange={this.handleEventNumberChange}/>
-        <EventList events={this.state.events} numberOfEvents={this.state.numberOfEvents}/>
+        <EventList events={this.state.events.slice(0, this.state.numberOfEvents)}/>
       </div>
     )
   }
