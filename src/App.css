@@ -13,6 +13,10 @@ ul {
   list-style: none;
 }
 
+h3, h5 {
+  margin: 0.5rem;
+}
+
 p {
   margin: 5px 0;
 }
@@ -90,7 +94,7 @@ input[type="number"] {
   right: 5px;
   bottom: 5px;
   padding: 5px 8px;
-  border-radius: 4px;
+
   outline: none;
   cursor: pointer;
 }
@@ -118,6 +122,9 @@ input[type="number"] {
   width: 200px;
   margin: 20px auto;
   text-align: center;
+}
+.number-of-events-input {
+   width: 80px;
 }
 
 .button-wrapper {
@@ -198,6 +205,16 @@ input[type="number"] {
   font-family: "Roboto";
 }
 
+.date-location {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.search-number-inputs {
+  display: flex;
+  justify-content: space-between;
+}
 
 
 @media only screen and (min-width: 992px) {
