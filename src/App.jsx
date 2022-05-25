@@ -26,7 +26,7 @@ export class App extends Component {
         location === 'all'
           ? events
           : events.filter((event) => event.location === location)
-      this.setState({ events: locationEvents.slice(0, this.state.numberOfEvents) })
+      this.setState({ events: locationEvents })
     })
   }
 
@@ -46,11 +46,14 @@ export class App extends Component {
   render() {
     return (
       <div className="App">
+        <div className='search-number-inputs'>
+
         <CitySearch
           locations={this.state.locations}
           updateEvents={this.updateEvents}
-        />
+          />
         <NumberOfEvents numberOfEvents={this.state.numberOfEvents} handleEventNumberChange={this.handleEventNumberChange}/>
+          </div>
         <EventList events={this.state.events.slice(0, this.state.numberOfEvents)}/>
       </div>
     )
