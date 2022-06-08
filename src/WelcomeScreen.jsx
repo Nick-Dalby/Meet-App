@@ -31,7 +31,7 @@ o.svg"
         </div>
       </div>
       <a
-        href="https://nico-diablo.github.io/meet/privacy.html"
+        href="https://nick-dalby.github.io/Meet-App/privacy.html"
         rel="nofollow noopener"
       >
         Privacy policy
