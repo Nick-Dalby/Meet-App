@@ -33,27 +33,42 @@ export class App extends Component {
     })
   }
 
-  async componentDidMount() {
+  // async componentDidMount() {
+  //   this.mounted = true
+
+  //   const accessToken = localStorage.getItem('access_token');
+  //   const isTokenValid = (await checkToken(accessToken)).error ? false : true;
+  //   const searchParams = new URLSearchParams(window.location.search); 
+  //   const code = searchParams.get("code");
+  //   this.setState({ showWelcomeScreen: !(code || isTokenValid) });
+  //   if ((code || isTokenValid) && this.mounted) {
+  //     getEvents().then((events) => {
+  //       if (this.mounted) {
+  //         this.setState({ events, locations: extractLocations(events) })
+  //       }
+  //     })
+  //   }
+
+
+  //   if (!navigator.onLine) {
+  //     this.setState({
+  //       warningText: 'You are offline - displaying cached event data',
+  //     })
+  //   } else {
+  //     this.setState({ warningText: '' })
+  //   }
+  // }
+
+  componentDidMount() {
     this.mounted = true
-
-    const accessToken = localStorage.getItem('access_token');
-    const isTokenValid = (await checkToken(accessToken)).error ? false : true;
-    const searchParams = new URLSearchParams(window.location.search); 
-    const code = searchParams.get("code");
-    this.setState({ showWelcomeScreen: !(code || isTokenValid) });
-    if ((code || isTokenValid) && this.mounted) {
-      getEvents().then((events) => {
-        if (this.mounted) {
-          this.setState({ events, locations: extractLocations(events) })
-        }
-      })
-    }
-
+    getEvents().then((events) => {
+      if (this.mounted) {
+        this.setState({ events, locations: extractLocations(events) })
+      }
+    })
 
     if (!navigator.onLine) {
-      this.setState({
-        warningText: 'You are offline - displaying cached event data',
-      })
+      this.setState({ warningText: 'You are offline - displaying cached event data' })
     } else {
       this.setState({ warningText: '' })
     }
@@ -64,8 +79,8 @@ export class App extends Component {
   }
 
   render() {
-    if (this.state.showWelcomeScreen === undefined)
-      return <div className="App" />
+    // if (this.state.showWelcomeScreen === undefined)
+    //   return <div className="App" />
 
     return (
       <div className="App">
@@ -83,12 +98,12 @@ export class App extends Component {
         <EventList
           events={this.state.events.slice(0, this.state.numberOfEvents)}
         />
-        <WelcomeScreen
+        {/* <WelcomeScreen
           showWelcomeScreen={this.state.showWelcomeScreen}
           getAccessToken={() => {
             getAccessToken()
           }}
-        />
+        /> */}
       </div>
     )
   }
