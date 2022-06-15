@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);
 .App {
   text-align: center;
-  padding: 5% 5%;
+  padding: 2em 5%;
 }
 
 .App * {
@@ -19,6 +19,7 @@ h3, h5 {
 
 p {
   margin: 5px 0;
+  line-height: 1.5;
 }
 
 .display-none {
@@ -47,9 +48,9 @@ input[type="number"] {
 .CitySearch {
   display: flex;
   flex-direction: column;
-  flex-basis: 300px;
-  max-width: 300px;
-  margin: auto;
+  flex-basis: 250px;
+  max-width: 250px;
+
   position: relative;
 }
 
@@ -118,13 +119,9 @@ input[type="number"] {
   overflow-x: hidden;
 }
 
-.numberOfEvents {
-  width: 200px;
-  margin: 20px auto;
-  text-align: center;
-}
+
 .number-of-events-input {
-   width: 80px;
+   width: 55px;
 }
 
 .button-wrapper {
@@ -213,7 +210,8 @@ input[type="number"] {
 
 .search-number-inputs {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  margin: 2em 0;
 }
 
 
