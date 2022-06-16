@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { ErrorAlert } from './Alert';
+import { ErrorAlert } from './Alert'
 
 export class NumberOfEvents extends Component {
   state = {
-    errorText: ''
+    errorText: '',
   }
 
   handleChange = (event) => {
@@ -11,12 +11,12 @@ export class NumberOfEvents extends Component {
 
     if (value <= 0 || value > 32) {
       this.setState({
-        errorText: 'choose between 1 and 32'
+        errorText: 'choose between 1 and 32',
       })
     } else {
-      this.props.handleEventNumberChange(value);
+      this.props.handleEventNumberChange(value)
       return this.setState({
-        errorText: ''
+        errorText: '',
       })
     }
   }
@@ -24,16 +24,17 @@ export class NumberOfEvents extends Component {
   render() {
     return (
       <>
-      <div className='numberOfEvents'>
+        <div className="numberOfEvents">
           <input
-          className="number-of-events-input"
-          type="number"
-          value={this.props.numberOfEvents}
-          onChange={this.handleChange}
+            className="number-of-events-input"
+            type="number"
+            value={this.props.numberOfEvents}
+            onChange={this.handleChange}
           />
-      </div>
-        <ErrorAlert text={this.state.errorText} className='error'/>
-          </>
+        </div>
+
+        <ErrorAlert text={this.state.errorText} />
+      </>
     )
   }
 }

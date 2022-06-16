@@ -99,7 +99,9 @@ export class App extends Component {
         {navigator.onLine ? (
           ''
           ) : (
+            <div className="error">
             <WarningAlert text={'Offline: displaying cached event data'} />
+            </div>
           )}
 
           
