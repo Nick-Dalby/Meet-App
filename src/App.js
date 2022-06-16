@@ -90,7 +90,7 @@ export class App extends Component {
 
   //   if (!navigator.onLine) {
   //     this.setState({
-  //       warningText: 'You are offline - displaying cached event data',
+  //       warningText: 'Offline: displaying cached event data',
   //     })
   //   } else {
   //     this.setState({ warningText: '' })
@@ -107,9 +107,9 @@ export class App extends Component {
 
     return (
       <div className="App">
-        <h1>Meet-App</h1>
+        <h1>Meet-App!</h1>
         <p>Find CareerFoundry meet-ups around the world!<br />
-          Enter your city & filter the number of results...
+          Pick a city and number of results...
         </p>
         <div className="search-number-inputs">
           <WarningAlert text={this.state.warningText} />
@@ -124,7 +124,7 @@ export class App extends Component {
         </div>
         <div className="data-vis-wrapper">
           <EventGenre events={this.state.events} />
-          <ResponsiveContainer height={400}>
+          <ResponsiveContainer height={300}>
             <ScatterChart margin={{ top: 20, right: 50, bottom: 10, left: 0 }}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="city" type="category" name="city" />
@@ -137,12 +137,12 @@ export class App extends Component {
         <EventList
           events={this.state.events.slice(0, this.state.numberOfEvents)}
         />
-        {/* <WelcomeScreen
+        <WelcomeScreen
           showWelcomeScreen={this.state.showWelcomeScreen}
           getAccessToken={() => {
             getAccessToken()
           }}
-        /> */}
+        />
       </div>
     )
   }
