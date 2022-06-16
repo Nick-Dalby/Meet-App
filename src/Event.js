@@ -31,18 +31,16 @@ export class Event extends Component {
         <h5 className="event-date">{formattedDate}</h5>
         <h5>{event.location}</h5>
         </div>
-       {this.state.collapsed ? (
+       
         <button className="toggle-event-details details-btn" onClick={this.handleClick}>
-          Show details
-        </button>) : (
-        <button className="toggle-event-details details-btn" onClick={this.handleClick}>
-          Hide details
-        </button>)}
+         {this.state.collapsed ? 'Show details' : 'Hide details'}
+        </button>
         {!this.state.collapsed ? (
           <div className="event-details">
             <p>
               {event.description}
               </p>
+              <a href={event.htmlLink}>add to calendar</a>
               </div>
         ) : null}
       </div>
