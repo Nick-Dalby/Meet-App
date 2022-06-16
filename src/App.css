@@ -132,9 +132,14 @@ input[type="number"] {
   font-family: sans-serif;
 }
 
+
 .Alert {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
-  top: 20px;
+  top: 0;
+  padding: 3px;
 }
 
 .data-vis-wrapper {
