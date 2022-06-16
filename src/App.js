@@ -25,7 +25,6 @@ export class App extends Component {
     events: [],
     locations: [],
     numberOfEvents: 32,
-    warningText: '',
     showWelcomeScreen: undefined,
   }
 
@@ -70,14 +69,6 @@ export class App extends Component {
         }
       })
     }
-
-    if (!navigator.onLine) {
-      this.setState({
-        warningText: 'You are offline - displaying cached event data',
-      })
-    } else {
-      this.setState({ warningText: '' })
-    }
   }
 
   // componentDidMount() {
@@ -87,14 +78,6 @@ export class App extends Component {
   //       this.setState({ events, locations: extractLocations(events) })
   //     }
   //   })
-
-  //   if (!navigator.onLine) {
-  //     this.setState({
-  //       warningText: 'Offline: displaying cached event data',
-  //     })
-  //   } else {
-  //     this.setState({ warningText: '' })
-  //   }
   // }
 
   componentWillUnmount() {
@@ -112,7 +95,14 @@ export class App extends Component {
           Pick a city and number of results...
         </p>
         <div className="search-number-inputs">
-          <WarningAlert text={this.state.warningText} />
+
+        {navigator.onLine ? (
+          ''
+          ) : (
+            <WarningAlert text={'Offline: displaying cached event data'} />
+          )}
+
+          
           <CitySearch
             locations={this.state.locations}
             updateEvents={this.updateEvents}
