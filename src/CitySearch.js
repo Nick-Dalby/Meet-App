@@ -5,7 +5,7 @@ export class CitySearch extends Component {
   state = {
     query: '',
     suggestions: [],
-    showSuggestions: undefined
+    showSuggestions: undefined,
   }
 
   handleInputChanged = (event) => {
@@ -17,7 +17,7 @@ export class CitySearch extends Component {
     if (suggestions.length === 0) {
       this.setState({
         query: value,
-        infoText: 'We can not find the city you are looking for. Please try another city',
+        infoText: 'City not found, please try another city',
       })
     } else {
      return this.setState({ 
@@ -40,8 +40,9 @@ export class CitySearch extends Component {
 
   render() {
     return (
-      <div className="CitySearch">
+      <>
         <InfoAlert text={this.state.infoText} />
+      <div className="CitySearch">
         <input
           placeholder='choose a city...'
           type="text"
@@ -49,19 +50,20 @@ export class CitySearch extends Component {
           value={this.state.query}
           onChange={this.handleInputChanged}
           onFocus={() => { this.setState({ showSuggestions: true }) }}
-        />
+          />
         <ul className="suggestions" style={this.state.showSuggestions ? {} : { display: 'none' }}>
           {this.state.suggestions.map((suggestion) => (
             <li 
             key={suggestion}
             onClick={() => this.handleItemClicked(suggestion)}
             >{suggestion}</li>
-          ))}
+            ))}
           <li key="all" onClick={() => this.handleItemClicked('all')}>
             <b>See all cities</b>
           </li>
         </ul>
       </div>
+            </>
     )
   }
 }

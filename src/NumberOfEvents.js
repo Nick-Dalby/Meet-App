@@ -23,15 +23,17 @@ export class NumberOfEvents extends Component {
 
   render() {
     return (
+      <>
       <div className='numberOfEvents'>
           <input
           className="number-of-events-input"
           type="number"
           value={this.props.numberOfEvents}
           onChange={this.handleChange}
-        />
-        <ErrorAlert text={this.state.errorText} />
+          />
       </div>
+        <ErrorAlert text={this.state.errorText} className='error'/>
+          </>
     )
   }
 }
